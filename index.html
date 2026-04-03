@@ -14,6 +14,7 @@
         <span class="topbar-chip">Paired-end reads, one genome</span>
       </div>
       <div class="language-switch" aria-label="Language switch">
+        <a class="button button-sm" href="README.md" download>Read Me</a>
         <a class="language-link active" href="index.html">EN</a>
         <a class="language-link" href="index.fr.html" lang="fr">FR</a>
       </div>
@@ -29,9 +30,9 @@
         </p>
         <div class="hero-badges" id="hero-badges"></div>
         <div class="hero-actions">
-          <a class="button button-primary" href="../reports/QA5221_S16_L001_summary.html">Open original summary</a>
-          <a class="button" href="../reports/QA5221_S16_L001_sample_summary.csv">Download sample CSV</a>
-          <a class="button" href="../reports/QA5221_S16_L001_amr_genes.csv">Download AMR genes CSV</a>
+          <a class="button button-primary" href="../reports/QA5221_S16_L001_summary.html" download>Open original summary</a>
+          <a class="button" href="../reports/QA5221_S16_L001_sample_summary.csv" download>Download sample CSV</a>
+          <a class="button" href="../reports/QA5221_S16_L001_amr_genes.csv" download>Download AMR genes CSV</a>
         </div>
       </div>
       <div class="hero-panel">
@@ -101,10 +102,10 @@
             <h3>QC status matrix</h3>
             <div id="qc-matrix"></div>
             <div class="inline-links">
-              <a href="../qc/raw/QA5221_S16_L001_R1_001_fastqc.html">Raw R1 FastQC</a>
-              <a href="../qc/raw/QA5221_S16_L001_R2_001_fastqc.html">Raw R2 FastQC</a>
-              <a href="../qc/trimmed/QA5221_S16_L001_trimmed_R1_fastqc.html">Trimmed R1 FastQC</a>
-              <a href="../qc/trimmed/QA5221_S16_L001_trimmed_R2_fastqc.html">Trimmed R2 FastQC</a>
+              <a class="button button-sm" href="../qc/raw/QA5221_S16_L001_R1_001_fastqc.html" download>Raw R1 FastQC</a>
+              <a class="button button-sm" href="../qc/raw/QA5221_S16_L001_R2_001_fastqc.html" download>Raw R2 FastQC</a>
+              <a class="button button-sm" href="../qc/trimmed/QA5221_S16_L001_trimmed_R1_fastqc.html" download>Trimmed R1 FastQC</a>
+              <a class="button button-sm" href="../qc/trimmed/QA5221_S16_L001_trimmed_R2_fastqc.html" download>Trimmed R2 FastQC</a>
             </div>
           </article>
           <article class="subpanel">
@@ -158,7 +159,7 @@
                 ST354 is already known in human, animal, and environmental AMR literature, so the lineage itself
                 is not new.
               </p>
-              <a href="../amr/QA5221_mlst.tsv">Open MLST output</a>
+              <a class="button button-sm" href="../amr/QA5221_mlst.tsv" download>Open MLST output</a>
             </div>
           </article>
         </div>
@@ -221,9 +222,9 @@
             </table>
           </div>
           <div class="inline-links">
-            <a href="../amr/QA5221_amrfinder.tsv">Open AMRFinder raw TSV</a>
-            <a href="../reports/QA5221_S16_L001_amr_identity_coverage.png">Open original identity/coverage plot</a>
-            <a href="../reports/QA5221_S16_L001_amr_classes.png">Open original class plot</a>
+            <a class="button button-sm" href="../amr/QA5221_amrfinder.tsv" download>Open AMRFinder raw TSV</a>
+            <a class="button button-sm" href="../reports/QA5221_S16_L001_amr_identity_coverage.png" download>Open original identity/coverage plot</a>
+            <a class="button button-sm" href="../reports/QA5221_S16_L001_amr_classes.png" download>Open original class plot</a>
           </div>
         </div>
       </section>
@@ -442,6 +443,32 @@
         </div>
       </section>
 
+      <section class="panel" id="readme">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Project Guide</p>
+            <h2>README & Data Access</h2>
+          </div>
+          <p class="panel-summary">
+            A quick guide to the directory structure and how to interpret these results.
+          </p>
+        </div>
+        <div class="subpanel">
+          <h3>Directory Overview</h3>
+          <ul class="truth-list">
+            <li><strong>site/</strong>: This interactive report.</li>
+            <li><strong>reports/</strong>: CSV and PNG summaries.</li>
+            <li><strong>qc/</strong>: FastQC quality reports.</li>
+            <li><strong>amr/</strong>: Raw tool outputs (AMRFinder, MLST).</li>
+            <li><strong>assembly/</strong>: Fasta contigs.</li>
+          </ul>
+          <div class="hero-actions" style="margin-top: 24px;">
+            <a class="button button-primary" href="README.md" download>Download Full README.md</a>
+            <a class="button" href="#top">Back to Top</a>
+          </div>
+        </div>
+      </section>
+
       <section class="panel" id="methods">
         <div class="panel-head">
           <div>
@@ -476,9 +503,9 @@
           </div>
         </div>
         <div class="inline-links">
-          <a href="../run_manifest.json">Open run manifest</a>
-          <a href="../assembly/contigs.fasta">Open contigs FASTA</a>
-          <a href="../reports/QA5221_S16_L001_read_counts.png">Open original read-count plot</a>
+          <a class="button button-sm" href="../run_manifest.json" download>Open run manifest</a>
+          <a class="button button-sm" href="../assembly/contigs.fasta" download>Open contigs FASTA</a>
+          <a class="button button-sm" href="../reports/QA5221_S16_L001_read_counts.png" download>Open original read-count plot</a>
         </div>
         <div class="references">
           <h3>References used to consolidate the interpretation</h3>
