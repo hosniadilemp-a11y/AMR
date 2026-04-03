@@ -329,7 +329,7 @@ h3 {
 
 main {
   display: grid;
-  gap: 24px;
+  gap: 48px;
 }
 
 .panel,
@@ -346,7 +346,15 @@ main {
 
 .subpanel {
   padding: 24px;
-  height: 100%;
+  min-height: 100%;
+}
+
+.panel > * + * {
+  margin-top: 24px;
+}
+
+.panel > .panel-head + * {
+  margin-top: 0;
 }
 
 .panel-head {
