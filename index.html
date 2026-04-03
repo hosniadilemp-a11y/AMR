@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QA5221 AMR Atlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -325,143 +328,115 @@
             and makes clear what is already supported versus what would still need more analysis.
           </p>
         </div>
-        <div class="research-grid">
-          <article class="research-card">
-            <div class="research-card-head">
-              <span class="research-step">1</span>
-              <h3>Paired files versus real genomes</h3>
-            </div>
-            <div class="research-block">
-              <span class="research-label">What was found</span>
-              <p>
-                The two FASTQ files are not two genomes. <code>R1</code> and <code>R2</code> are paired mates from the same isolate
-                and together support one genome reconstruction.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">How it was done</span>
-              <p>
-                Paired-end validation, matching read counts, raw and trimmed FastQC review, and single-sample assembly behavior
-                all supported the one-isolate interpretation.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Tools used</span>
-              <div class="tool-pill-row">
-                <span class="tool-pill">FastQC</span>
-                <span class="tool-pill">Cutadapt</span>
-                <span class="tool-pill">SPAdes</span>
+        <ul class="modern-list">
+          <li class="modern-list-item">
+            <div class="modern-list-icon">1</div>
+            <div class="modern-list-content">
+              <div class="modern-list-block">
+                <h3 class="modern-list-text">Paired files versus real genomes</h3>
+                <span class="modern-list-label">What was found</span>
+                <p class="modern-list-text">The two FASTQ files are not two genomes. <code>R1</code> and <code>R2</code> are paired mates from the same isolate and together support one genome reconstruction.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">How it was done</span>
+                <p class="modern-list-text">Paired-end validation, matching read counts, raw and trimmed FastQC review, and single-sample assembly behavior supported the one-isolate interpretation.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Tools used</span>
+                <div class="tool-pill-row">
+                  <span class="tool-pill">FastQC</span>
+                  <span class="tool-pill">Cutadapt</span>
+                  <span class="tool-pill">SPAdes</span>
+                </div>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Publication value</span>
+                <p class="modern-list-text">Important technical consolidation, but not itself a novelty claim.</p>
               </div>
             </div>
-            <div class="research-note">
-              <span class="research-label">Publication value</span>
-              <p>This is an important technical consolidation, but not itself a novelty claim.</p>
-            </div>
-          </article>
+          </li>
 
-          <article class="research-card">
-            <div class="research-card-head">
-              <span class="research-step">2</span>
-              <h3>Genome identity and lineage</h3>
+          <li class="modern-list-item">
+            <div class="modern-list-icon">2</div>
+            <div class="modern-list-content">
+              <div class="modern-list-block">
+                <h3 class="modern-list-text">Genome identity and lineage</h3>
+                <span class="modern-list-label">What was found</span>
+                <p class="modern-list-text">The recovered draft genome is consistent with <em>Escherichia coli</em> ST354, with a 5.03 Mb assembly, 134 contigs, 50.45% GC, and an N50 of 294,640 bp.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">How it was done</span>
+                <p class="modern-list-text">Trimmed reads were assembled with SPAdes, contig metrics were summarized, and MLST assigned type ST354.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Supporting papers</span>
+                <ul class="paper-list">
+                  <li><a href="https://pubmed.ncbi.nlm.nih.gov/40107766/">Sakauchi et al. 2025. CTX-M-14 <em>E. coli</em> ST354</a></li>
+                  <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9646818/">de Carvalho et al. 2022. MDR <em>E. coli</em> ST354</a></li>
+                </ul>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Publication value</span>
+                <p class="modern-list-text">Lineage is known, so this does not support a new-lineage paper without broader comparison.</p>
+              </div>
             </div>
-            <div class="research-block">
-              <span class="research-label">What was found</span>
-              <p>
-                The recovered draft genome is consistent with <em>Escherichia coli</em> ST354, with a 5.03 Mb assembly,
-                134 contigs, 50.45% GC, and an N50 of 294,640 bp.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">How it was done</span>
-              <p>
-                Trimmed reads were assembled with SPAdes, contig metrics were summarized, and MLST assigned the Achtman
-                <em>E. coli</em> scheme type ST354.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Supporting papers</span>
-              <ul class="paper-list">
-                <li><a href="https://pubmed.ncbi.nlm.nih.gov/40107766/">Sakauchi et al. 2025. CTX-M-14-producing <em>E. coli</em> ST354 in companion animals</a></li>
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9646818/">de Carvalho et al. 2022. MDR <em>E. coli</em> ST354 carrying CTX-M-24 and KPC-2</a></li>
-              </ul>
-            </div>
-            <div class="research-note">
-              <span class="research-label">Publication value</span>
-              <p>The lineage is known, so this does not support a new-lineage paper without broader comparison.</p>
-            </div>
-          </article>
+          </li>
 
-          <article class="research-card">
-            <div class="research-card-head">
-              <span class="research-step">3</span>
-              <h3>Resistance genes and MDR</h3>
+          <li class="modern-list-item">
+            <div class="modern-list-icon">3</div>
+            <div class="modern-list-content">
+              <div class="modern-list-block">
+                <h3 class="modern-list-text">Resistance genes and MDR</h3>
+                <span class="modern-list-label">What was found</span>
+                <p class="modern-list-text">The isolate carries <code>tet(A)</code>, <code>blaTEM-1</code>, <code>aadA1</code>, <code>aadA2</code>, <code>aph(3')-Ia</code>, <code>cmlA1</code>, <code>sul1</code>, <code>sul3</code>, and <code>dfrA7</code>.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">How it was done</span>
+                <p class="modern-list-text">AMRFinderPlus was run on the assembly, AMR hits were normalized, and unique antibiotic classes were counted for MDR.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Publication value</span>
+                <p class="modern-list-text">Strong enough for an MDR surveillance report or a comparative genomics note.</p>
+              </div>
             </div>
-            <div class="research-block">
-              <span class="research-label">What was found</span>
-              <p>
-                The isolate carries <code>tet(A)</code>, <code>blaTEM-1</code>, <code>aadA1</code>, <code>aadA2</code>,
-                <code>aph(3')-Ia</code>, <code>cmlA1</code>, <code>sul1</code>, <code>sul3</code>, and <code>dfrA7</code>,
-                spanning six antibiotic classes.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">How it was done</span>
-              <p>
-                AMRFinderPlus was run on the recovered assembly, AMR hits were normalized, stress genes were separated from
-                antibiotic-resistance genes, and unique antibiotic classes were counted for MDR.
-              </p>
-            </div>
-            <div class="research-note">
-              <span class="research-label">Publication value</span>
-              <p>This is strong enough for an MDR surveillance report or a comparative genomics note with contextual metadata.</p>
-            </div>
-          </article>
+          </li>
 
-          <article class="research-card">
-            <div class="research-card-head">
-              <span class="research-step">4</span>
-              <h3>Mobile-element context</h3>
+          <li class="modern-list-item">
+            <div class="modern-list-icon">4</div>
+            <div class="modern-list-content">
+              <div class="modern-list-block">
+                <h3 class="modern-list-text">Mobile-element context</h3>
+                <span class="modern-list-label">What was found</span>
+                <p class="modern-list-text">Blocks <code>aadA2-cmlA1-aadA1-qacL-sul3</code> and <code>dfrA7-qacEdelta1-sul1</code> fit known integron-linked structures.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Supporting papers</span>
+                <ul class="paper-list">
+                  <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1855504/">Antunes et al. 2007. sul3-containing integrons</a></li>
+                </ul>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Publication value</span>
+                <p class="modern-list-text">Interesting architecture, but long-read sequencing would be needed for a structural claim.</p>
+              </div>
             </div>
-            <div class="research-block">
-              <span class="research-label">What was found</span>
-              <p>
-                The <code>aadA2-cmlA1-aadA1-qacL-sul3</code> and <code>dfrA7-qacEdelta1-sul1</code> blocks are compatible
-                with known integron-linked or cassette-like structures rather than new mobile elements.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Supporting papers</span>
-              <ul class="paper-list">
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1855504/">Antunes et al. 2007. Dissemination of sul3-containing class 1 integron elements</a></li>
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8448097/">Gillings et al. 2021. Diversity of integron-associated qac efflux genes</a></li>
-              </ul>
-            </div>
-            <div class="research-note">
-              <span class="research-label">Publication value</span>
-              <p>Interesting architecture, but long-read sequencing would be needed before claiming structural novelty.</p>
-            </div>
-          </article>
+          </li>
 
-          <article class="research-card">
-            <div class="research-card-head">
-              <span class="research-step">5</span>
-              <h3>Real publication level</h3>
+          <li class="modern-list-item">
+            <div class="modern-list-icon">5</div>
+            <div class="modern-list-content">
+              <div class="modern-list-block">
+                <h3 class="modern-list-text">Real publication level</h3>
+                <span class="modern-list-label">What was found</span>
+                <p class="modern-list-text">Dataset supports a useful MDR case, but not a new species or a new AMR gene.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Best current strategy</span>
+                <p class="modern-list-text">Surveillance note, local epidemiology, or comparative genomics. Long-read or AST needed for more impact.</p>
+              </div>
             </div>
-            <div class="research-block">
-              <span class="research-label">What was found</span>
-              <p>
-                The dataset supports a useful MDR case, but not a new species, a new AMR gene, or a new resistance mechanism.
-              </p>
-            </div>
-            <div class="research-note">
-              <span class="research-label">Best current strategy</span>
-              <p>
-                Best fit today: surveillance note, local epidemiology, or comparative genomics. Needed next for a stronger
-                paper: ANI or phylogeny, pangenome comparison, phenotypic AST, and ideally long-read sequencing.
-              </p>
-            </div>
-          </article>
-        </div>
+          </li>
+        </ul>
         <div class="verdict-band">
           <span class="verdict-kicker">Publication verdict</span>
           <p>

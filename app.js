@@ -445,24 +445,25 @@ function noveltyStageLabel(stageName) {
 function buildNoveltyMethods() {
   const methods = reportData.novelty.methods || [];
   const target = document.getElementById("novelty-methods");
-  target.innerHTML = methods.map((method) => `
-    <article class="research-card">
-      <div class="research-card-head">
-        <h3>${isFrench ? method.title_fr : method.title_en}</h3>
+  target.className = "modern-list"; // Change class from research-grid to modern-list
+  target.innerHTML = methods.map((method, index) => `
+    <li class="modern-list-item">
+      <div class="modern-list-icon">${index + 1}</div>
+      <div class="modern-list-content">
+        <div class="modern-list-block">
+          <h3 class="modern-list-text">${isFrench ? method.title_fr : method.title_en}</h3>
+          <p class="modern-list-text">${isFrench ? method.text_fr : method.text_en}</p>
+        </div>
+        <div class="modern-list-block">
+          <span class="modern-list-label">${isFrench ? "Outils" : "Tools"}</span>
+          <p class="modern-list-text">${method.tools}</p>
+        </div>
+        <div class="modern-list-block">
+          <span class="modern-list-label">${isFrench ? "Bases de données" : "Databases"}</span>
+          <p class="modern-list-text">${method.databases}</p>
+        </div>
       </div>
-      <div class="research-block">
-        <span class="research-label">${isFrench ? "Description" : "Description"}</span>
-        <p>${isFrench ? method.text_fr : method.text_en}</p>
-      </div>
-      <div class="research-block">
-        <span class="research-label">${isFrench ? "Outils" : "Tools"}</span>
-        <p>${method.tools}</p>
-      </div>
-      <div class="research-block">
-        <span class="research-label">${isFrench ? "Bases de données" : "Databases"}</span>
-        <p>${method.databases}</p>
-      </div>
-    </article>
+    </li>
   `).join("");
 }
 

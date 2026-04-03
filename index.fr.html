@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QA5221 Atlas AMR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -318,189 +321,142 @@
           </div>
           <p class="panel-summary">
             Cette section suit une structure orientée recherche. Elle sépare les observations brutes de
-            l'interprétation et indique clairement ce qui est déjà soutenu par les données et ce qui
-            nécessiterait encore des analyses supplémentaires.
+            l'interprétation et indique clairement ce qui est déjà soutenu par les données.
           </p>
         </div>
-        <div class="research-grid">
-          <article class="research-card">
-            <div class="research-card-head">
-              <span class="research-step">1</span>
-              <h3>Fichiers appari&eacute;s versus g&eacute;nomes r&eacute;els</h3>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
-              <p>
-                Les deux fichiers FASTQ ne correspondent pas &agrave; deux g&eacute;nomes ind&eacute;pendants.
-                <code>R1</code> et <code>R2</code> sont deux lectures appari&eacute;es provenant du m&ecirc;me isolat, et elles soutiennent
-                ensemble une seule reconstruction g&eacute;nomique.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Comment cela a &eacute;t&eacute; fait</span>
-              <p>
-                La consolidation repose sur la validation des lectures appari&eacute;es FASTQ, la concordance des nombres de lectures,
-                l'examen FastQC avant et apr&egrave;s trimming, puis l'assemblage d'un &eacute;chantillon unique avec les deux lectures appari&eacute;es.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Outils utilis&eacute;s</span>
-              <div class="tool-pill-row">
-                <span class="tool-pill">FastQC</span>
-                <span class="tool-pill">Cutadapt</span>
-                <span class="tool-pill">SPAdes</span>
+        <ul class="modern-list">
+          <li class="modern-list-item">
+            <div class="modern-list-icon">1</div>
+            <div class="modern-list-content">
+              <div class="modern-list-block">
+                <h3 class="modern-list-text">Fichiers appari&eacute;s versus g&eacute;nomes r&eacute;els</h3>
+                <span class="modern-list-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
+                <p class="modern-list-text">Les deux fichiers FASTQ ne correspondent pas &agrave; deux g&eacute;nomes ind&eacute;pendants. <code>R1</code> et <code>R2</code> sont deux lectures appari&eacute;es provenant du m&ecirc;me isolat, et elles soutiennent ensemble une seule reconstruction g&eacute;nomique.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Comment cela a &eacute;t&eacute; fait</span>
+                <p class="modern-list-text">La consolidation repose sur la validation des lectures appari&eacute;es FASTQ, la concordance des nombres de lectures, l'examen FastQC avant et apr&egrave;s trimming, puis l'assemblage d'un &eacute;chantillon unique avec les deux lectures appari&eacute;es.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Outils utilis&eacute;s</span>
+                <div class="tool-pill-row">
+                  <span class="tool-pill">FastQC</span>
+                  <span class="tool-pill">Cutadapt</span>
+                  <span class="tool-pill">SPAdes</span>
+                </div>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Valeur de publication</span>
+                <p class="modern-list-text">C'est une consolidation technique essentielle, mais ce n'est pas une nouveaut&eacute; biologique &agrave; elle seule.</p>
               </div>
             </div>
-            <div class="research-note">
-              <span class="research-label">Valeur de publication</span>
-              <p>
-                C'est une consolidation technique essentielle, mais ce n'est pas une nouveaut&eacute; biologique &agrave; elle seule.
-              </p>
-            </div>
-          </article>
+          </li>
 
-          <article class="research-card">
-            <div class="research-card-head">
-              <span class="research-step">2</span>
-              <h3>Identit&eacute; du g&eacute;nome et lign&eacute;e</h3>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
-              <p>
-                Le g&eacute;nome draft r&eacute;cup&eacute;r&eacute; est compatible avec <em>Escherichia coli</em> ST354,
-                avec un assemblage de 5,03 Mb, 134 contigs, un N50 de 294&nbsp;640 pb et 50,45&nbsp;% de GC.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Comment cela a &eacute;t&eacute; fait</span>
-              <p>
-                Les lectures trim&eacute;es ont &eacute;t&eacute; assembl&eacute;es avec SPAdes, les m&eacute;triques ont &eacute;t&eacute;
-                extraites des contigs, puis MLST a attribu&eacute; le type ST354 selon le sch&eacute;ma Achtman d'<em>E. coli</em>.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Outils utilis&eacute;s</span>
-              <div class="tool-pill-row">
-                <span class="tool-pill">SPAdes</span>
-                <span class="tool-pill">MLST</span>
+          <li class="modern-list-item">
+            <div class="modern-list-icon">2</div>
+            <div class="modern-list-content">
+              <div class="modern-list-block">
+                <h3 class="modern-list-text">Identit&eacute; du g&eacute;nome et lign&eacute;e</h3>
+                <span class="modern-list-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
+                <p class="modern-list-text">Le g&eacute;nome draft r&eacute;cup&eacute;r&eacute; est compatible avec <em>Escherichia coli</em> ST354, avec un assemblage de 5,03 Mb, 134 contigs, un N50 de 294&nbsp;640 pb et 50,45&nbsp;% de GC.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Comment cela a &eacute;t&eacute; fait</span>
+                <p class="modern-list-text">Les lectures trim&eacute;es ont &eacute;t&eacute; assembl&eacute;es avec SPAdes, les m&eacute;triques ont &eacute;t&eacute; extraites des contigs, puis MLST a attribu&eacute; le type ST354 selon le sch&eacute;ma Achtman d'<em>E. coli</em>.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Outils utilis&eacute;s</span>
+                <div class="tool-pill-row">
+                  <span class="tool-pill">SPAdes</span>
+                  <span class="tool-pill">MLST</span>
+                </div>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Articles de soutien</span>
+                <ul class="paper-list">
+                  <li><a href="https://pubmed.ncbi.nlm.nih.gov/40107766/">Sakauchi et al. 2025. <em>E. coli</em> ST354</a></li>
+                  <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9646818/">de Carvalho et al. 2022. <em>E. coli</em> ST354 MDR</a></li>
+                </ul>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Valeur de publication</span>
+                <p class="modern-list-text">La lign&eacute;e elle-m&ecirc;me est connue. Sans comparaison phylog&eacute;nomique plus large, cela ne suffit pas pour une revendication de nouvelle lignée.</p>
               </div>
             </div>
-            <div class="research-block">
-              <span class="research-label">Articles de soutien</span>
-              <ul class="paper-list">
-                <li><a href="https://pubmed.ncbi.nlm.nih.gov/40107766/">Sakauchi et al. 2025. <em>E. coli</em> ST354 producteur de CTX-M-14 chez les animaux de compagnie</a></li>
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9646818/">de Carvalho et al. 2022. <em>E. coli</em> ST354 MDR portant CTX-M-24 et KPC-2</a></li>
-              </ul>
-            </div>
-            <div class="research-note">
-              <span class="research-label">Valeur de publication</span>
-              <p>
-                La lign&eacute;e elle-m&ecirc;me est connue. Sans comparaison phylog&eacute;nomique plus large,
-                cela ne suffit pas pour une revendication de nouvelle lignée.
-              </p>
-            </div>
-          </article>
+          </li>
 
-          <article class="research-card">
-            <div class="research-card-head">
-              <span class="research-step">3</span>
-              <h3>R&eacute;sistance et multir&eacute;sistance</h3>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
-              <p>
-                L'isolat porte <code>tet(A)</code>, <code>blaTEM-1</code>, <code>aadA1</code>, <code>aadA2</code>,
-                <code>aph(3')-Ia</code>, <code>cmlA1</code>, <code>sul1</code>, <code>sul3</code> et <code>dfrA7</code>,
-                couvrant six classes antibiotiques. Cela satisfait clairement la d&eacute;finition demand&eacute;e de MDR g&eacute;notypique.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Comment cela a &eacute;t&eacute; fait</span>
-              <p>
-                AMRFinderPlus a &eacute;t&eacute; ex&eacute;cut&eacute; sur l'assemblage final. Les g&egrave;nes de stress
-                <code>qacL</code> et <code>qacEdelta1</code> ont &eacute;t&eacute; s&eacute;par&eacute;s des g&egrave;nes de
-                r&eacute;sistance antibiotique avant le comptage des classes pour la classification MDR.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Outils utilis&eacute;s</span>
-              <div class="tool-pill-row">
-                <span class="tool-pill">AMRFinderPlus</span>
-                <span class="tool-pill">Python</span>
-                <span class="tool-pill">Pandas</span>
+          <li class="modern-list-item">
+            <div class="modern-list-icon">3</div>
+            <div class="modern-list-content">
+              <div class="modern-list-block">
+                <h3 class="modern-list-text">R&eacute;sistance et multir&eacute;sistance</h3>
+                <span class="modern-list-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
+                <p class="modern-list-text">L'isolat porte <code>tet(A)</code>, <code>blaTEM-1</code>, <code>aadA1</code>, <code>aadA2</code>, <code>aph(3')-Ia</code>, <code>cmlA1</code>, <code>sul1</code>, <code>sul3</code> et <code>dfrA7</code>, couvrant six classes antibiotiques.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Comment cela a &eacute;t&eacute; fait</span>
+                <p class="modern-list-text">AMRFinderPlus a &eacute;t&eacute; ex&eacute;cut&eacute; sur l'assemblage final. Les g&egrave;nes de stress <code>qacL</code> et <code>qacEdelta1</code> ont &eacute;t&eacute; s&eacute;par&eacute;s avant le comptage MDR.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Outils utilis&eacute;s</span>
+                <div class="tool-pill-row">
+                  <span class="tool-pill">AMRFinderPlus</span>
+                  <span class="tool-pill">Python</span>
+                  <span class="tool-pill">Pandas</span>
+                </div>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Valeur de publication</span>
+                <p class="modern-list-text">Publiable comme observation de surveillance MDR ou comme note de g&eacute;nomique comparative.</p>
               </div>
             </div>
-            <div class="research-note">
-              <span class="research-label">Valeur de publication</span>
-              <p>
-                Ce r&eacute;sultat est publiable comme observation de surveillance MDR ou comme note de g&eacute;nomique comparative,
-                si la source de l'&eacute;chantillon et le contexte &eacute;pid&eacute;miologique sont informatifs.
-              </p>
-            </div>
-          </article>
+          </li>
 
-          <article class="research-card">
-            <div class="research-card-head">
-              <span class="research-step">4</span>
-              <h3>Contexte des &eacute;l&eacute;ments mobiles</h3>
+          <li class="modern-list-item">
+            <div class="modern-list-icon">4</div>
+            <div class="modern-list-content">
+              <div class="modern-list-block">
+                <h3 class="modern-list-text">Contexte des &eacute;l&eacute;ments mobiles</h3>
+                <span class="modern-list-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
+                <p class="modern-list-text">Les blocs <code>aadA2-cmlA1-aadA1-qacL-sul3</code> et <code>dfrA7-qacEdelta1-sul1</code> sont compatibles avec des structures d&eacute;j&agrave; connues.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Comment cela a &eacute;t&eacute; fait</span>
+                <p class="modern-list-text">Les coordonn&eacute;es g&eacute;niques ont &eacute;t&eacute; remapp&eacute;es sur les contigs pour visualiser les voisinages de r&eacute;sistance.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Articles de soutien</span>
+                <ul class="paper-list">
+                  <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1855504/">Antunes et al. 2007. Diffusion d'&eacute;l&eacute;ments de classe 1 contenant sul3</a></li>
+                  <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8448097/">Gillings et al. 2021. Diversit&eacute; des g&egrave;nes qac</a></li>
+                </ul>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Valeur de publication</span>
+                <p class="modern-list-text">Architecture int&eacute;ressante, mais un s&eacute;quen&ccedil;age en longues lectures serait n&eacute;cessaire pour une d&eacute;couverte structurale.</p>
+              </div>
             </div>
-            <div class="research-block">
-              <span class="research-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
-              <p>
-                Les blocs <code>aadA2-cmlA1-aadA1-qacL-sul3</code> et <code>dfrA7-qacEdelta1-sul1</code>
-                sont compatibles avec des structures de type int&eacute;gron ou cassette d&eacute;j&agrave; connues,
-                plut&ocirc;t qu'avec de nouveaux &eacute;l&eacute;ments mobiles.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Comment cela a &eacute;t&eacute; fait</span>
-              <p>
-                Les coordonn&eacute;es g&eacute;niques issues d'AMRFinder ont &eacute;t&eacute; remapp&eacute;es sur les contigs
-                pour visualiser les voisinages de r&eacute;sistance et d&eacute;duire une architecture probable des cassettes.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Articles de soutien</span>
-              <ul class="paper-list">
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1855504/">Antunes et al. 2007. Diffusion d'&eacute;l&eacute;ments de classe 1 contenant sul3</a></li>
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8448097/">Gillings et al. 2021. Diversit&eacute; des g&egrave;nes qac associ&eacute;s aux int&eacute;grons</a></li>
-                <li><a href="https://pubmed.ncbi.nlm.nih.gov/39955516/">Prevalence and characterization of class I integrons in MDR <em>E. coli</em>, 2025</a></li>
-              </ul>
-            </div>
-            <div class="research-note">
-              <span class="research-label">Valeur de publication</span>
-              <p>
-                L'architecture est int&eacute;ressante, mais un s&eacute;quen&ccedil;age en longues lectures serait n&eacute;cessaire
-                pour la publier comme d&eacute;couverte structurale robuste.
-              </p>
-            </div>
-          </article>
+          </li>
 
-          <article class="research-card">
-            <div class="research-card-head">
-              <span class="research-step">5</span>
-              <h3>Niveau r&eacute;el de publication</h3>
+          <li class="modern-list-item">
+            <div class="modern-list-icon">5</div>
+            <div class="modern-list-content">
+              <div class="modern-list-block">
+                <h3 class="modern-list-text">Niveau r&acute;el de publication</h3>
+                <span class="modern-list-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
+                <p class="modern-list-text">Le jeu de donn&eacute;es actuel soutient une observation MDR utile et solide, mais il ne permet pas encore d'affirmer une nouveaut&eacute; majeure.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Comment cela a &eacute;t&eacute; jug&eacute;</span>
+                <p class="modern-list-text">L'&eacute;valuation a &eacute;t&eacute; faite en confrontant les preuves aux crit&egrave;res modernes : nouveaut&eacute;, comparaison, m&eacute;canisme et validation.</p>
+              </div>
+              <div class="modern-list-block">
+                <span class="modern-list-label">Meilleure strat&eacute;gie</span>
+                <p class="modern-list-text">Note de surveillance, &eacute;tude d'&eacute;pid&eacute;miologie locale, ou analyse comparative. Ajouter des longues lectures pour plus d'impact.</p>
+              </div>
             </div>
-            <div class="research-block">
-              <span class="research-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
-              <p>
-                Le jeu de donn&eacute;es actuel soutient une observation MDR utile et solide, mais il ne permet pas
-                encore d'affirmer une nouvelle esp&egrave;ce, un nouveau g&egrave;ne AMR ou un nouveau m&eacute;canisme de r&eacute;sistance.
-              </p>
-            </div>
-            <div class="research-block">
-              <span class="research-label">Comment cela a &eacute;t&eacute; jug&eacute;</span>
-              <p>
-                L'&eacute;valuation de publiabilit&eacute; a &eacute;t&eacute; faite en confrontant les preuves actuelles
-                aux crit&egrave;res modernes de la g&eacute;nomique bact&eacute;rienne : nouveaut&eacute;, comparaison,
-                m&eacute;canisme, impact et validation ph&eacute;notypique.
-              </p>
-            </div>
-            <div class="research-note">
-              <span class="research-label">Meilleure strat&eacute;gie</span>
-              <p>
-                Le meilleur angle de publication aujourd'hui est une note de surveillance, une &eacute;tude d'&eacute;pid&eacute;miologie locale,
-                ou une analyse comparative. Pour viser plus haut, il faudrait ajouter ANI/phylog&eacute;nie, pangenome,
+          </li>
+        </ul>drait ajouter ANI/phylog&eacute;nie, pangenome,
                 antibiogramme ph&eacute;notypique et id&eacute;alement un s&eacute;quen&ccedil;age en longues lectures.
               </p>
             </div>
