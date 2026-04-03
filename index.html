@@ -99,14 +99,12 @@
         <div class="two-column">
           <article class="subpanel">
             <h3>QC status matrix</h3>
-            <div class="table-wrap">
-              <div id="qc-matrix"></div>
-            </div>
-            <div class="hero-actions" style="margin-top: 1rem;">
-              <a class="button" href="../qc/raw/QA5221_S16_L001_R1_001_fastqc.html">Raw R1 FastQC</a>
-              <a class="button" href="../qc/raw/QA5221_S16_L001_R2_001_fastqc.html">Raw R2 FastQC</a>
-              <a class="button" href="../qc/trimmed/QA5221_S16_L001_trimmed_R1_fastqc.html">Trimmed R1 FastQC</a>
-              <a class="button" href="../qc/trimmed/QA5221_S16_L001_trimmed_R2_fastqc.html">Trimmed R2 FastQC</a>
+            <div id="qc-matrix"></div>
+            <div class="inline-links">
+              <a href="../qc/raw/QA5221_S16_L001_R1_001_fastqc.html">Raw R1 FastQC</a>
+              <a href="../qc/raw/QA5221_S16_L001_R2_001_fastqc.html">Raw R2 FastQC</a>
+              <a href="../qc/trimmed/QA5221_S16_L001_trimmed_R1_fastqc.html">Trimmed R1 FastQC</a>
+              <a href="../qc/trimmed/QA5221_S16_L001_trimmed_R2_fastqc.html">Trimmed R2 FastQC</a>
             </div>
           </article>
           <article class="subpanel">
@@ -142,7 +140,7 @@
             <div class="wgs-gate">
               <div class="gate-ring" id="gate-ring"><span id="gate-ring-label"></span></div>
               <div class="gate-text">
-                <h3>WGS compatibility</h3>
+                <h4>WGS compatibility</h4>
                 <p>
                   Post-trim depth, assembly size, and N50 all passed. That makes the AMR interpretation
                   appropriate for an isolate-style genome analysis rather than a low-complexity fragment set.
@@ -152,15 +150,15 @@
           </article>
           <article class="subpanel">
             <h3>Lineage signal</h3>
-            <div class="specimen-card" style="background: var(--primary); min-height: 100%;">
-              <p class="eyebrow" style="color: var(--accent);">MLST</p>
-              <h2 style="color: white; font-style: italic;">E. coli ST354</h2>
-              <p style="color: hsla(0,0%,100%,0.8);">
-                The assembly matches the Achtman scheme, sequence type 354.
+            <div class="lineage-card">
+              <p class="lineage-kicker">MLST</p>
+              <h4><em>E. coli</em> ST354</h4>
+              <p>
+                The assembly matches the <code>ecoli_achtman_4</code> scheme, sequence type <strong>354</strong>.
                 ST354 is already known in human, animal, and environmental AMR literature, so the lineage itself
                 is not new.
               </p>
-              <a class="button button-primary" style="background: white; color: var(--primary); margin-top: 1rem;" href="../amr/QA5221_mlst.tsv">Open MLST output</a>
+              <a href="../amr/QA5221_mlst.tsv">Open MLST output</a>
             </div>
           </article>
         </div>
@@ -185,7 +183,7 @@
                 <title id="class-chart-title">Detected antibiotic classes</title>
               </svg>
             </div>
-            <div class="hero-badges" id="class-legend" style="margin-top: 1.5rem;"></div>
+            <div class="legend-list" id="class-legend"></div>
           </article>
           <article class="subpanel">
             <h3>Identity and coverage support</h3>
@@ -200,10 +198,10 @@
             </p>
           </article>
         </div>
-        <div class="subpanel" style="margin-top: 2rem;">
-          <div class="panel-head" style="margin-bottom: 1.5rem;">
-            <h3>Gene-by-gene evidence</h3>
-            <div class="hero-actions" id="filter-row"></div>
+        <div class="subpanel gene-table-panel">
+          <div class="gene-table-head">
+            <h3>Gene-by-gene evidence table</h3>
+            <div class="filter-row" id="filter-row"></div>
           </div>
           <div class="table-wrap">
             <table class="gene-table">
@@ -222,10 +220,10 @@
               <tbody id="gene-table-body"></tbody>
             </table>
           </div>
-          <div class="hero-actions" style="margin-top: 1.5rem;">
-            <a class="button" href="../amr/QA5221_amrfinder.tsv">Open AMRFinder raw TSV</a>
-            <a class="button" href="../reports/QA5221_S16_L001_amr_identity_coverage.png">Open original identity/coverage plot</a>
-            <a class="button" href="../reports/QA5221_S16_L001_amr_classes.png">Open original class plot</a>
+          <div class="inline-links">
+            <a href="../amr/QA5221_amrfinder.tsv">Open AMRFinder raw TSV</a>
+            <a href="../reports/QA5221_S16_L001_amr_identity_coverage.png">Open original identity/coverage plot</a>
+            <a href="../reports/QA5221_S16_L001_amr_classes.png">Open original class plot</a>
           </div>
         </div>
       </section>
@@ -242,7 +240,7 @@
             be needed to resolve the full architecture.
           </p>
         </div>
-        <div class="metrics-grid" id="cluster-stack"></div>
+        <div class="cluster-stack" id="cluster-stack"></div>
       </section>
 
       <section class="panel" id="novelty">
@@ -266,25 +264,23 @@
             or source, that could become publishable context after comparative genomics and metadata review.
           </p>
         </div>
-        <div class="two-column" style="margin-top: 2rem;">
-          <div class="subpanel">
-            <h3>Why the novelty claim is limited</h3>
-            <ul class="paper-list" style="margin-top: 1rem;">
-              <li>R1 and R2 are paired reads from one isolate, so there is no second independent genome to compare.</li>
-              <li>AMRFinder calls are overwhelmingly exact matches to known resistance genes, not novel candidates.</li>
-              <li>ST354 is already documented as an MDR-associated lineage in human and animal settings.</li>
-              <li>The patterns fit previously described integron-linked resistance structures.</li>
-            </ul>
-          </div>
-          <div class="subpanel">
-            <h3>What would strengthen a claim</h3>
-            <ul class="paper-list" style="margin-top: 1rem;">
-              <li>Long-read sequencing to close plasmids and define complete elements.</li>
-              <li>Phenotypic antimicrobial susceptibility testing (AST).</li>
-              <li>Core-genome phylogeny against regional and global ST354 genomes.</li>
-              <li>Sample metadata proving an unusual host or geography.</li>
-            </ul>
-          </div>
+        <div class="subpanel">
+          <h3>Why the novelty claim is limited</h3>
+          <ul class="truth-list">
+            <li>R1 and R2 are paired reads from one isolate, so there is no second independent genome to compare.</li>
+            <li>AMRFinder calls are overwhelmingly exact matches to known resistance genes, not novel candidates.</li>
+            <li>ST354 is already documented as an MDR-associated lineage in human and animal settings.</li>
+            <li>The clustered <code>aadA2-cmlA1-aadA1-qacL-sul3</code> and <code>dfrA7-qacEdelta1-sul1</code> patterns fit previously described integron-linked resistance structures.</li>
+          </ul>
+        </div>
+        <div class="subpanel">
+          <h3>What would strengthen a genuine discovery claim</h3>
+          <ul class="truth-list">
+            <li>Long-read sequencing to close plasmids and define complete mobile elements.</li>
+            <li>Phenotypic antimicrobial susceptibility testing to connect genotype to actual resistance.</li>
+            <li>Core-genome phylogeny against regional and global ST354 genomes.</li>
+            <li>Sample metadata proving an unusual host, geography, outbreak context, or gene arrangement.</li>
+          </ul>
         </div>
       </section>
 
@@ -305,18 +301,31 @@
               <span class="research-step">1</span>
               <h3>Paired files versus real genomes</h3>
             </div>
-            <div>
+            <div class="research-block">
               <span class="research-label">What was found</span>
-              <p>The two FASTQ files are not two genomes. R1 and R2 are paired mates from the same isolate.</p>
-              <span class="research-label" style="margin-top: 1rem;">Tools used</span>
-              <div class="timeline-meta">
-                <span class="timeline-chip">FastQC</span>
-                <span class="timeline-chip">Cutadapt</span>
+              <p>
+                The two FASTQ files are not two genomes. <code>R1</code> and <code>R2</code> are paired mates from the same isolate
+                and together support one genome reconstruction.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">How it was done</span>
+              <p>
+                Paired-end validation, matching read counts, raw and trimmed FastQC review, and single-sample assembly behavior
+                all supported the one-isolate interpretation.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Tools used</span>
+              <div class="tool-pill-row">
+                <span class="tool-pill">FastQC</span>
+                <span class="tool-pill">Cutadapt</span>
+                <span class="tool-pill">SPAdes</span>
               </div>
             </div>
-            <div class="callout" style="padding: 1.5rem;">
+            <div class="research-note">
               <span class="research-label">Publication value</span>
-              <p>Technical consolidation, not a novelty claim.</p>
+              <p>This is an important technical consolidation, but not itself a novelty claim.</p>
             </div>
           </article>
 
@@ -325,25 +334,110 @@
               <span class="research-step">2</span>
               <h3>Genome identity and lineage</h3>
             </div>
-            <div>
+            <div class="research-block">
               <span class="research-label">What was found</span>
-              <p>Recovered draft genome is consistent with E. coli ST354, 5.03 Mb assembly, 134 contigs.</p>
-              <span class="research-label" style="margin-top: 1rem;">Supporting papers</span>
+              <p>
+                The recovered draft genome is consistent with <em>Escherichia coli</em> ST354, with a 5.03 Mb assembly,
+                134 contigs, 50.45% GC, and an N50 of 294,640 bp.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">How it was done</span>
+              <p>
+                Trimmed reads were assembled with SPAdes, contig metrics were summarized, and MLST assigned the Achtman
+                <em>E. coli</em> scheme type ST354.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Supporting papers</span>
               <ul class="paper-list">
-                <li><a href="https://pubmed.ncbi.nlm.nih.gov/40107766/">Sakauchi et al. 2025</a></li>
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9646818/">de Carvalho et al. 2022</a></li>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov/40107766/">Sakauchi et al. 2025. CTX-M-14-producing <em>E. coli</em> ST354 in companion animals</a></li>
+                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9646818/">de Carvalho et al. 2022. MDR <em>E. coli</em> ST354 carrying CTX-M-24 and KPC-2</a></li>
               </ul>
             </div>
-            <div class="callout" style="padding: 1.5rem;">
+            <div class="research-note">
               <span class="research-label">Publication value</span>
-              <p>Known lineage, needs broader comparison.</p>
+              <p>The lineage is known, so this does not support a new-lineage paper without broader comparison.</p>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-card-head">
+              <span class="research-step">3</span>
+              <h3>Resistance genes and MDR</h3>
+            </div>
+            <div class="research-block">
+              <span class="research-label">What was found</span>
+              <p>
+                The isolate carries <code>tet(A)</code>, <code>blaTEM-1</code>, <code>aadA1</code>, <code>aadA2</code>,
+                <code>aph(3')-Ia</code>, <code>cmlA1</code>, <code>sul1</code>, <code>sul3</code>, and <code>dfrA7</code>,
+                spanning six antibiotic classes.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">How it was done</span>
+              <p>
+                AMRFinderPlus was run on the recovered assembly, AMR hits were normalized, stress genes were separated from
+                antibiotic-resistance genes, and unique antibiotic classes were counted for MDR.
+              </p>
+            </div>
+            <div class="research-note">
+              <span class="research-label">Publication value</span>
+              <p>This is strong enough for an MDR surveillance report or a comparative genomics note with contextual metadata.</p>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-card-head">
+              <span class="research-step">4</span>
+              <h3>Mobile-element context</h3>
+            </div>
+            <div class="research-block">
+              <span class="research-label">What was found</span>
+              <p>
+                The <code>aadA2-cmlA1-aadA1-qacL-sul3</code> and <code>dfrA7-qacEdelta1-sul1</code> blocks are compatible
+                with known integron-linked or cassette-like structures rather than new mobile elements.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Supporting papers</span>
+              <ul class="paper-list">
+                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1855504/">Antunes et al. 2007. Dissemination of sul3-containing class 1 integron elements</a></li>
+                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8448097/">Gillings et al. 2021. Diversity of integron-associated qac efflux genes</a></li>
+              </ul>
+            </div>
+            <div class="research-note">
+              <span class="research-label">Publication value</span>
+              <p>Interesting architecture, but long-read sequencing would be needed before claiming structural novelty.</p>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-card-head">
+              <span class="research-step">5</span>
+              <h3>Real publication level</h3>
+            </div>
+            <div class="research-block">
+              <span class="research-label">What was found</span>
+              <p>
+                The dataset supports a useful MDR case, but not a new species, a new AMR gene, or a new resistance mechanism.
+              </p>
+            </div>
+            <div class="research-note">
+              <span class="research-label">Best current strategy</span>
+              <p>
+                Best fit today: surveillance note, local epidemiology, or comparative genomics. Needed next for a stronger
+                paper: ANI or phylogeny, pangenome comparison, phenotypic AST, and ideally long-read sequencing.
+              </p>
             </div>
           </article>
         </div>
-        <div class="callout contrast" style="margin-top: 2rem; border-radius: var(--radius-lg);">
-          <span class="eyebrow" style="color: var(--accent);">Final Verdict</span>
+        <div class="verdict-band">
+          <span class="verdict-kicker">Publication verdict</span>
           <p>
-            Strong enough for a surveillance-oriented or comparative-genomics report. Not yet enough for a major novelty claim.
+            As it stands, this dataset is strong enough for a surveillance-oriented or comparative-genomics report,
+            especially if the isolate source has clinical, environmental, or geographic relevance. It is not yet strong
+            enough to support a major novelty claim.
           </p>
         </div>
       </section>
@@ -362,19 +456,23 @@
         <div class="timeline">
           <div class="timeline-item">
             <span class="timeline-step">1</span>
-            <div><h3>FastQC on raw reads</h3><p>Raw R1 passed; raw R2 was weaker but salvageable after trimming.</p></div>
+            <div><h3>FastQC on raw reads</h3><p>Raw R1 passed per-base quality, while raw R2 was weaker but still salvageable after trimming.</p></div>
           </div>
           <div class="timeline-item">
             <span class="timeline-step">2</span>
-            <div><h3>Cutadapt trimming</h3><p>Low-quality tails removed, retaining 987,197 read pairs (97.97%).</p></div>
+            <div><h3>Cutadapt trimming</h3><p>Low-quality tails and short reads were removed, retaining 987,197 read pairs for assembly.</p></div>
           </div>
           <div class="timeline-item">
             <span class="timeline-step">3</span>
-            <div><h3>SPAdes assembly recovery</h3><p>Recovered with isolate mode after WSL limitations affected default run.</p></div>
+            <div><h3>SPAdes assembly recovery</h3><p>The final assembly was recovered with isolate mode and a constrained memory setting after WSL limitations affected the default run.</p></div>
           </div>
           <div class="timeline-item">
             <span class="timeline-step">4</span>
-            <div><h3>AMRFinder, MLST, and plasmid screen</h3><p>Detected resistance genes, assigned ST354, and zero plasmid replicons.</p></div>
+            <div><h3>AMRFinder, MLST, and plasmid screen</h3><p>AMRFinder detected the resistance genes, MLST assigned ST354, and PlasmidFinder returned no replicon hits in the recovered assembly.</p></div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-step">5</span>
+            <div><h3>MDR classification</h3><p>Six antibiotic classes were represented, meeting the requested threshold of resistance to three or more classes.</p></div>
           </div>
         </div>
         <div class="inline-links">

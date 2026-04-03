@@ -104,14 +104,12 @@
         <div class="two-column">
           <article class="subpanel">
             <h3>Matrice des statuts QC</h3>
-            <div class="table-wrap">
-              <div id="qc-matrix"></div>
-            </div>
-            <div class="hero-actions" style="margin-top: 1rem;">
-              <a class="button" href="../qc/raw/QA5221_S16_L001_R1_001_fastqc.html">FastQC brut R1</a>
-              <a class="button" href="../qc/raw/QA5221_S16_L001_R2_001_fastqc.html">FastQC brut R2</a>
-              <a class="button" href="../qc/trimmed/QA5221_S16_L001_trimmed_R1_fastqc.html">FastQC trimmé R1</a>
-              <a class="button" href="../qc/trimmed/QA5221_S16_L001_trimmed_R2_fastqc.html">FastQC trimmé R2</a>
+            <div id="qc-matrix"></div>
+            <div class="inline-links">
+              <a href="../qc/raw/QA5221_S16_L001_R1_001_fastqc.html">FastQC brut R1</a>
+              <a href="../qc/raw/QA5221_S16_L001_R2_001_fastqc.html">FastQC brut R2</a>
+              <a href="../qc/trimmed/QA5221_S16_L001_trimmed_R1_fastqc.html">FastQC trimmé R1</a>
+              <a href="../qc/trimmed/QA5221_S16_L001_trimmed_R2_fastqc.html">FastQC trimmé R2</a>
             </div>
           </article>
           <article class="subpanel">
@@ -147,7 +145,7 @@
             <div class="wgs-gate">
               <div class="gate-ring" id="gate-ring"><span id="gate-ring-label"></span></div>
               <div class="gate-text">
-                <h3>Compatibilité WGS</h3>
+                <h4>Compatibilité WGS</h4>
                 <p>
                   La profondeur post-trimming, la taille d'assemblage et le N50 sont tous conformes.
                   L'interprétation AMR est donc pertinente pour une analyse de type isolat.
@@ -157,15 +155,15 @@
           </article>
           <article class="subpanel">
             <h3>Signal de lignée</h3>
-            <div class="specimen-card" style="background: var(--primary); min-height: 100%;">
-              <p class="eyebrow" style="color: var(--accent);">MLST</p>
-              <h2 style="color: white; font-style: italic;">E. coli ST354</h2>
-              <p style="color: hsla(0,0%,100%,0.8);">
-                L'assemblage correspond au schéma Achtman, type de séquence 354. 
-                ST354 est déjà décrit dans la littérature AMR humaine, animale et environnementale ; 
-                la lignée n'est donc pas nouvelle.
+            <div class="lineage-card">
+              <p class="lineage-kicker">MLST</p>
+              <h4><em>E. coli</em> ST354</h4>
+              <p>
+                L'assemblage correspond au schéma <code>ecoli_achtman_4</code>, type de séquence
+                <strong>354</strong>. ST354 est déjà décrit dans la littérature AMR humaine, animale
+                et environnementale ; la lignée n'est donc pas nouvelle.
               </p>
-              <a class="button button-primary" style="background: white; color: var(--primary); margin-top: 1rem;" href="../amr/QA5221_mlst.tsv">Ouvrir la sortie MLST</a>
+              <a href="../amr/QA5221_mlst.tsv">Ouvrir la sortie MLST</a>
             </div>
           </article>
         </div>
@@ -191,7 +189,7 @@
                 <title id="class-chart-title">Classes antibiotiques détectées</title>
               </svg>
             </div>
-            <div class="hero-badges" id="class-legend" style="margin-top: 1.5rem;"></div>
+            <div class="legend-list" id="class-legend"></div>
           </article>
           <article class="subpanel">
             <h3>Support identité et couverture</h3>
@@ -206,10 +204,10 @@
             </p>
           </article>
         </div>
-        <div class="subpanel" style="margin-top: 2rem;">
-          <div class="panel-head" style="margin-bottom: 1.5rem;">
-            <h3>Preuve gène par gène</h3>
-            <div class="hero-actions" id="filter-row"></div>
+        <div class="subpanel gene-table-panel">
+          <div class="gene-table-head">
+            <h3>Table de preuve gène par gène</h3>
+            <div class="filter-row" id="filter-row"></div>
           </div>
           <div class="table-wrap">
             <table class="gene-table">
@@ -228,10 +226,10 @@
               <tbody id="gene-table-body"></tbody>
             </table>
           </div>
-          <div class="hero-actions" style="margin-top: 1.5rem;">
-            <a class="button" href="../amr/QA5221_amrfinder.tsv">Ouvrir le TSV AMRFinder</a>
-            <a class="button" href="../reports/QA5221_S16_L001_amr_identity_coverage.png">Ouvrir la figure identité/couverture</a>
-            <a class="button" href="../reports/QA5221_S16_L001_amr_classes.png">Ouvrir la figure des classes</a>
+          <div class="inline-links">
+            <a href="../amr/QA5221_amrfinder.tsv">Ouvrir le TSV AMRFinder</a>
+            <a href="../reports/QA5221_S16_L001_amr_identity_coverage.png">Ouvrir la figure identité/couverture</a>
+            <a href="../reports/QA5221_S16_L001_amr_classes.png">Ouvrir la figure des classes</a>
           </div>
         </div>
       </section>
@@ -248,7 +246,7 @@
             en longues lectures serait nécessaire pour résoudre l'architecture complète.
           </p>
         </div>
-        <div class="metrics-grid" id="cluster-stack"></div>
+        <div class="cluster-stack" id="cluster-stack"></div>
       </section>
 
       <section class="panel" id="novelty">
@@ -274,25 +272,23 @@
             comparatives et ajout de métadonnées.
           </p>
         </div>
-        <div class="two-column" style="margin-top: 2rem;">
-          <div class="subpanel">
-            <h3>Pourquoi la nouveauté reste limitée</h3>
-            <ul class="paper-list" style="margin-top: 1rem;">
-              <li>R1 et R2 sont des lectures appariées d'un seul isolat ; il n'existe pas de second génome indépendant.</li>
-              <li>Les appels AMRFinder sont majoritairement des correspondances exactes à des gènes connus.</li>
-              <li>ST354 est déjà documenté comme lignée associée à la multirésistance.</li>
-              <li>Les motifs génétiques correspondent à des structures d'intégration déjà décrites.</li>
-            </ul>
-          </div>
-          <div class="subpanel">
-            <h3>Ce qui renforcerait une revendication</h3>
-            <ul class="paper-list" style="margin-top: 1rem;">
-              <li>Séquençage en longues lectures pour fermer les plasmides.</li>
-              <li>Tests phénotypiques de sensibilité aux antibiotiques (AST).</li>
-              <li>Phylogénie comparée à des génomes ST354 globaux.</li>
-              <li>Métadonnées prouvant un hôte ou une géographie inhabituelle.</li>
-            </ul>
-          </div>
+        <div class="subpanel">
+          <h3>Pourquoi l'argument de nouveauté reste limité</h3>
+          <ul class="truth-list">
+            <li>R1 et R2 sont des lectures appariées d'un seul isolat ; il n'existe donc pas de second génome indépendant à comparer.</li>
+            <li>Les appels AMRFinder sont majoritairement des correspondances exactes à des gènes déjà connus, pas à des candidats nouveaux.</li>
+            <li>ST354 est déjà documenté comme lignée associée à la multirésistance dans des contextes humains et animaux.</li>
+            <li>Les motifs <code>aadA2-cmlA1-aadA1-qacL-sul3</code> et <code>dfrA7-qacEdelta1-sul1</code> sont compatibles avec des structures de résistance déjà décrites.</li>
+          </ul>
+        </div>
+        <div class="subpanel">
+          <h3>Ce qui renforcerait une véritable revendication de découverte</h3>
+          <ul class="truth-list">
+            <li>Un séquençage en longues lectures pour fermer les plasmides et définir les éléments mobiles complets.</li>
+            <li>Des tests phénotypiques de sensibilité aux antibiotiques pour relier génotype et résistance réelle.</li>
+            <li>Une phylogénie du génome central comparée à des génomes ST354 régionaux et mondiaux.</li>
+            <li>Des métadonnées prouvant un hôte, une géographie, un contexte d'épidémie ou un agencement génétique inhabituel.</li>
+          </ul>
         </div>
       </section>
 
@@ -312,47 +308,192 @@
           <article class="research-card">
             <div class="research-card-head">
               <span class="research-step">1</span>
-              <h3>Fichiers appariés vs génomes réels</h3>
+              <h3>Fichiers appari&eacute;s versus g&eacute;nomes r&eacute;els</h3>
             </div>
-            <div>
-              <span class="research-label">Observations</span>
-              <p>R1 et R2 sont des lectures appariées du même isolat, pas deux génomes distincts.</p>
-              <span class="research-label" style="margin-top: 1rem;">Outils</span>
-              <div class="timeline-meta">
-                <span class="timeline-chip">FastQC</span>
-                <span class="timeline-chip">Cutadapt</span>
+            <div class="research-block">
+              <span class="research-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
+              <p>
+                Les deux fichiers FASTQ ne correspondent pas &agrave; deux g&eacute;nomes ind&eacute;pendants.
+                <code>R1</code> et <code>R2</code> sont deux lectures appari&eacute;es provenant du m&ecirc;me isolat, et elles soutiennent
+                ensemble une seule reconstruction g&eacute;nomique.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Comment cela a &eacute;t&eacute; fait</span>
+              <p>
+                La consolidation repose sur la validation des lectures appari&eacute;es FASTQ, la concordance des nombres de lectures,
+                l'examen FastQC avant et apr&egrave;s trimming, puis l'assemblage d'un &eacute;chantillon unique avec les deux lectures appari&eacute;es.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Outils utilis&eacute;s</span>
+              <div class="tool-pill-row">
+                <span class="tool-pill">FastQC</span>
+                <span class="tool-pill">Cutadapt</span>
+                <span class="tool-pill">SPAdes</span>
               </div>
             </div>
-            <div class="callout" style="padding: 1.5rem;">
-              <span class="research-label">Valeur publication</span>
-              <p>Consolidation technique, pas de nouveauté.</p>
+            <div class="research-note">
+              <span class="research-label">Valeur de publication</span>
+              <p>
+                C'est une consolidation technique essentielle, mais ce n'est pas une nouveaut&eacute; biologique &agrave; elle seule.
+              </p>
             </div>
           </article>
 
           <article class="research-card">
             <div class="research-card-head">
               <span class="research-step">2</span>
-              <h3>Identité et lignée</h3>
+              <h3>Identit&eacute; du g&eacute;nome et lign&eacute;e</h3>
             </div>
-            <div>
-              <span class="research-label">Observations</span>
-              <p>Génome draft consistent avec E. coli ST354, assemblage de 5,03 Mb, 134 contigs.</p>
-              <span class="research-label" style="margin-top: 1rem;">Articles</span>
+            <div class="research-block">
+              <span class="research-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
+              <p>
+                Le g&eacute;nome draft r&eacute;cup&eacute;r&eacute; est compatible avec <em>Escherichia coli</em> ST354,
+                avec un assemblage de 5,03 Mb, 134 contigs, un N50 de 294&nbsp;640 pb et 50,45&nbsp;% de GC.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Comment cela a &eacute;t&eacute; fait</span>
+              <p>
+                Les lectures trim&eacute;es ont &eacute;t&eacute; assembl&eacute;es avec SPAdes, les m&eacute;triques ont &eacute;t&eacute;
+                extraites des contigs, puis MLST a attribu&eacute; le type ST354 selon le sch&eacute;ma Achtman d'<em>E. coli</em>.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Outils utilis&eacute;s</span>
+              <div class="tool-pill-row">
+                <span class="tool-pill">SPAdes</span>
+                <span class="tool-pill">MLST</span>
+              </div>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Articles de soutien</span>
               <ul class="paper-list">
-                <li><a href="https://pubmed.ncbi.nlm.nih.gov/40107766/">Sakauchi et al. 2025</a></li>
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9646818/">de Carvalho et al. 2022</a></li>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov/40107766/">Sakauchi et al. 2025. <em>E. coli</em> ST354 producteur de CTX-M-14 chez les animaux de compagnie</a></li>
+                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9646818/">de Carvalho et al. 2022. <em>E. coli</em> ST354 MDR portant CTX-M-24 et KPC-2</a></li>
               </ul>
             </div>
-            <div class="callout" style="padding: 1.5rem;">
-              <span class="research-label">Valeur publication</span>
-              <p>Lignée connue, nécessite une comparaison large.</p>
+            <div class="research-note">
+              <span class="research-label">Valeur de publication</span>
+              <p>
+                La lign&eacute;e elle-m&ecirc;me est connue. Sans comparaison phylog&eacute;nomique plus large,
+                cela ne suffit pas pour une revendication de nouvelle lignée.
+              </p>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-card-head">
+              <span class="research-step">3</span>
+              <h3>R&eacute;sistance et multir&eacute;sistance</h3>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
+              <p>
+                L'isolat porte <code>tet(A)</code>, <code>blaTEM-1</code>, <code>aadA1</code>, <code>aadA2</code>,
+                <code>aph(3')-Ia</code>, <code>cmlA1</code>, <code>sul1</code>, <code>sul3</code> et <code>dfrA7</code>,
+                couvrant six classes antibiotiques. Cela satisfait clairement la d&eacute;finition demand&eacute;e de MDR g&eacute;notypique.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Comment cela a &eacute;t&eacute; fait</span>
+              <p>
+                AMRFinderPlus a &eacute;t&eacute; ex&eacute;cut&eacute; sur l'assemblage final. Les g&egrave;nes de stress
+                <code>qacL</code> et <code>qacEdelta1</code> ont &eacute;t&eacute; s&eacute;par&eacute;s des g&egrave;nes de
+                r&eacute;sistance antibiotique avant le comptage des classes pour la classification MDR.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Outils utilis&eacute;s</span>
+              <div class="tool-pill-row">
+                <span class="tool-pill">AMRFinderPlus</span>
+                <span class="tool-pill">Python</span>
+                <span class="tool-pill">Pandas</span>
+              </div>
+            </div>
+            <div class="research-note">
+              <span class="research-label">Valeur de publication</span>
+              <p>
+                Ce r&eacute;sultat est publiable comme observation de surveillance MDR ou comme note de g&eacute;nomique comparative,
+                si la source de l'&eacute;chantillon et le contexte &eacute;pid&eacute;miologique sont informatifs.
+              </p>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-card-head">
+              <span class="research-step">4</span>
+              <h3>Contexte des &eacute;l&eacute;ments mobiles</h3>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
+              <p>
+                Les blocs <code>aadA2-cmlA1-aadA1-qacL-sul3</code> et <code>dfrA7-qacEdelta1-sul1</code>
+                sont compatibles avec des structures de type int&eacute;gron ou cassette d&eacute;j&agrave; connues,
+                plut&ocirc;t qu'avec de nouveaux &eacute;l&eacute;ments mobiles.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Comment cela a &eacute;t&eacute; fait</span>
+              <p>
+                Les coordonn&eacute;es g&eacute;niques issues d'AMRFinder ont &eacute;t&eacute; remapp&eacute;es sur les contigs
+                pour visualiser les voisinages de r&eacute;sistance et d&eacute;duire une architecture probable des cassettes.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Articles de soutien</span>
+              <ul class="paper-list">
+                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1855504/">Antunes et al. 2007. Diffusion d'&eacute;l&eacute;ments de classe 1 contenant sul3</a></li>
+                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8448097/">Gillings et al. 2021. Diversit&eacute; des g&egrave;nes qac associ&eacute;s aux int&eacute;grons</a></li>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov/39955516/">Prevalence and characterization of class I integrons in MDR <em>E. coli</em>, 2025</a></li>
+              </ul>
+            </div>
+            <div class="research-note">
+              <span class="research-label">Valeur de publication</span>
+              <p>
+                L'architecture est int&eacute;ressante, mais un s&eacute;quen&ccedil;age en longues lectures serait n&eacute;cessaire
+                pour la publier comme d&eacute;couverte structurale robuste.
+              </p>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-card-head">
+              <span class="research-step">5</span>
+              <h3>Niveau r&eacute;el de publication</h3>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Ce qui a &eacute;t&eacute; trouv&eacute;</span>
+              <p>
+                Le jeu de donn&eacute;es actuel soutient une observation MDR utile et solide, mais il ne permet pas
+                encore d'affirmer une nouvelle esp&egrave;ce, un nouveau g&egrave;ne AMR ou un nouveau m&eacute;canisme de r&eacute;sistance.
+              </p>
+            </div>
+            <div class="research-block">
+              <span class="research-label">Comment cela a &eacute;t&eacute; jug&eacute;</span>
+              <p>
+                L'&eacute;valuation de publiabilit&eacute; a &eacute;t&eacute; faite en confrontant les preuves actuelles
+                aux crit&egrave;res modernes de la g&eacute;nomique bact&eacute;rienne : nouveaut&eacute;, comparaison,
+                m&eacute;canisme, impact et validation ph&eacute;notypique.
+              </p>
+            </div>
+            <div class="research-note">
+              <span class="research-label">Meilleure strat&eacute;gie</span>
+              <p>
+                Le meilleur angle de publication aujourd'hui est une note de surveillance, une &eacute;tude d'&eacute;pid&eacute;miologie locale,
+                ou une analyse comparative. Pour viser plus haut, il faudrait ajouter ANI/phylog&eacute;nie, pangenome,
+                antibiogramme ph&eacute;notypique et id&eacute;alement un s&eacute;quen&ccedil;age en longues lectures.
+              </p>
             </div>
           </article>
         </div>
-        <div class="callout contrast" style="margin-top: 2rem; border-radius: var(--radius-lg);">
-          <span class="eyebrow" style="color: var(--accent);">Verdict Final</span>
+        <div class="verdict-band">
+          <span class="verdict-kicker">Verdict de publication</span>
           <p>
-            Assez solide pour un rapport de surveillance ou de génomique comparative. Pas assez pour une nouveauté majeure.
+            En l'&eacute;tat, ce jeu de donn&eacute;es est suffisamment solide pour une communication orient&eacute;e surveillance
+            ou g&eacute;nomique comparative, surtout si la source de l'isolat a un int&eacute;r&ecirc;t clinique, environnemental
+            ou g&eacute;ographique. Il n'est pas encore assez fort pour soutenir une revendication de nouveaut&eacute; majeure.
           </p>
         </div>
       </section>
@@ -373,22 +514,110 @@
         <div class="timeline">
           <div class="timeline-item">
             <span class="timeline-step">1</span>
-            <div><h3>FastQC sur les lectures brutes</h3><p>R1 a réussi ; R2 était plus faible mais utilisable après trimming.</p></div>
+            <div class="timeline-body">
+              <h3>FastQC sur les lectures brutes</h3>
+              <p>
+                Les deux fichiers bruts ont d'abord été évalués séparément afin de vérifier la qualité des lectures,
+                le contenu GC, la présence d'adaptateurs et la distribution des longueurs. Cette étape a confirmé que
+                les données restaient exploitables pour un workflow d'assemblage bactérien.
+              </p>
+              <div class="timeline-meta">
+                <span class="timeline-chip">R1 qualité par base : PASS</span>
+                <span class="timeline-chip">R2 qualité par base : WARN</span>
+                <span class="timeline-chip">GC brut : FAIL sur R1 et R2</span>
+                <span class="timeline-chip">Adaptateurs : PASS</span>
+              </div>
+              <p class="timeline-note">
+                Interprétation : R2 était plus faible que R1 au départ, mais l'absence de contamination adaptateur
+                importante et le profil global restaient compatibles avec une étape de trimming corrective.
+              </p>
+            </div>
           </div>
           <div class="timeline-item">
             <span class="timeline-step">2</span>
-            <h3>Trimming avec Cutadapt</h3>
-            <p>Suppressions des queues de faible qualité, rétention de 987 197 paires (97,97 %).</p>
+            <div class="timeline-body">
+              <h3>Trimming avec Cutadapt</h3>
+              <p>
+                Les lectures ont été trimées avec suppression des bases de faible qualité et exclusion des fragments
+                trop courts. Le seuil minimal de longueur a été fixé à 50 pb, ce qui a permis de conserver uniquement
+                les lectures suffisamment informatives pour l'assemblage.
+              </p>
+              <div class="timeline-meta">
+                <span class="timeline-chip">Paires brutes : 1 007 619</span>
+                <span class="timeline-chip">Paires conservées : 987 197</span>
+                <span class="timeline-chip">Rétention : 97,97 %</span>
+                <span class="timeline-chip">Longueur finale : 50-251 pb</span>
+              </div>
+              <p class="timeline-note">
+                Interprétation : le trimming a stabilisé les deux lectures appariées et a supprimé les extrémités les plus bruitées
+                sans perte massive de profondeur, ce qui renforce la fiabilité de l'assemblage final.
+              </p>
+            </div>
           </div>
           <div class="timeline-item">
             <span class="timeline-step">3</span>
-            <h3>Récupération de l'assemblage SPAdes</h3>
-            <p>Récupéré en mode isolat après limitations WSL lors du premier essai.</p>
+            <div class="timeline-body">
+              <h3>Récupération de l'assemblage SPAdes</h3>
+              <p>
+                Le premier essai SPAdes sur le système de fichiers Windows monté a échoué à cause des permissions WSL.
+                Un second essai dans le système Linux a ensuite été limité par la mémoire disponible. L'assemblage final
+                a donc été récupéré manuellement avec SPAdes en mode <code>--only-assembler --isolate</code> et une
+                contrainte mémoire adaptée.
+              </p>
+              <div class="timeline-meta">
+                <span class="timeline-chip">Assemblage final : 5,03 Mb</span>
+                <span class="timeline-chip">Contigs : 134</span>
+                <span class="timeline-chip">N50 : 294 640 pb</span>
+                <span class="timeline-chip">GC : 50,45 %</span>
+              </div>
+              <p class="timeline-note">
+                Interprétation : malgré la récupération manuelle, les métriques finales restent cohérentes avec un génome
+                bactérien d'isolat, et le filtre de compatibilité WGS a été validé.
+              </p>
+            </div>
           </div>
           <div class="timeline-item">
             <span class="timeline-step">4</span>
-            <h3>AMRFinder, MLST et recherche de plasmides</h3>
-            <p>Gènes de résistance détectés, lignée ST354 assignée, aucun plasmide trouvé.</p>
+            <div class="timeline-body">
+              <h3>AMRFinder, MLST et recherche de plasmides</h3>
+              <p>
+                L'assemblage récupéré a été interrogé avec AMRFinderPlus pour la résistance, avec MLST pour l'assignation
+                de lignée et avec PlasmidFinder pour la recherche de réplicons plasmidiques. Cette étape a fourni le cœur
+                biologique de l'interprétation.
+              </p>
+              <div class="timeline-meta">
+                <span class="timeline-chip">MLST : <em>E. coli</em> ST354</span>
+                <span class="timeline-chip">AMR comptés : 9 gènes</span>
+                <span class="timeline-chip">Gènes de stress ou biocide : 2</span>
+                <span class="timeline-chip">PlasmidFinder : 0 résultat</span>
+              </div>
+              <p class="timeline-note">
+                Les gènes majeurs détectés sont <code>tet(A)</code>, <code>blaTEM-1</code>, <code>aadA1</code>,
+                <code>aadA2</code>, <code>aph(3')-Ia</code>, <code>cmlA1</code>, <code>sul1</code>,
+                <code>sul3</code> et <code>dfrA7</code>. Les gènes <code>qacL</code> et <code>qacEdelta1</code>
+                ont été conservés comme contexte de stress mais non comptés comme classes antibiotiques.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-step">5</span>
+            <div class="timeline-body">
+              <h3>Classification MDR</h3>
+              <p>
+                Après normalisation des résultats AMR, les classes antibiotiques uniques ont été comptées afin
+                d'appliquer la règle définie par le projet : MDR si au moins trois classes sont représentées.
+              </p>
+              <div class="timeline-meta">
+                <span class="timeline-chip">Classes : 6</span>
+                <span class="timeline-chip">MDR : OUI</span>
+                <span class="timeline-chip">Classes retenues : tétracycline, aminosides, phénicol, sulfamides, triméthoprime, bêta-lactamines</span>
+              </div>
+              <p class="timeline-note">
+                Interprétation finale : l'échantillon correspond à un profil MDR génotypique solide. En revanche,
+                il n'y a pas de preuve suffisante pour revendiquer un nouveau gène de résistance ou une découverte
+                majeure sans analyses comparatives supplémentaires.
+              </p>
+            </div>
           </div>
         </div>
         <div class="inline-links">
