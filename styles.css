@@ -758,8 +758,69 @@ svg {
 
 .research-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.directory-card {
+  padding: 16px;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.directory-card strong {
+  color: var(--moss);
+  font-size: 1.1rem;
+}
+
+.directory-card span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.strengthen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.strengthen-card {
+  padding: 16px;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-soft);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.strengthen-card .icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.strengthen-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .strengthen-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .research-card {

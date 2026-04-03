@@ -1,100 +1,7 @@
-const reportData = {
-  sampleName: "QA5221_S16_L001",
-  summary: {
-    organismCall: "Escherichia coli",
-    mdrStatus: "YES",
-    antibioticClassCount: 6,
-    amrGeneCount: 9,
-    stressGeneCount: 2,
-    rawReadPairs: 1007619,
-    trimmedReadPairs: 987197,
-    readRetentionPct: 97.97,
-    assemblyBp: 5030111,
-    contigCount: 134,
-    largestContigBp: 513612,
-    n50Bp: 294640,
-    gcPct: 50.45,
-    mlstScheme: "ecoli_achtman_4",
-    mlstType: "ST354",
-    plasmidReplicons: 0
-  },
-  qc: [
-    { label: "Raw R1", file: "QA5221_S16_L001_R1_001.fastq.gz", stage: "raw", perBaseQuality: "PASS", gcContent: "FAIL", adapterContent: "PASS", totalSequences: 1007619, sequenceLength: "35-251" },
-    { label: "Raw R2", file: "QA5221_S16_L001_R2_001.fastq.gz", stage: "raw", perBaseQuality: "WARN", gcContent: "FAIL", adapterContent: "PASS", totalSequences: 1007619, sequenceLength: "35-251" },
-    { label: "Trimmed R1", file: "QA5221_S16_L001_trimmed_R1.fastq.gz", stage: "trimmed", perBaseQuality: "PASS", gcContent: "WARN", adapterContent: "PASS", totalSequences: 987197, sequenceLength: "50-251" },
-    { label: "Trimmed R2", file: "QA5221_S16_L001_trimmed_R2.fastq.gz", stage: "trimmed", perBaseQuality: "PASS", gcContent: "WARN", adapterContent: "PASS", totalSequences: 987197, sequenceLength: "50-251" }
-  ],
-  amrGenes: [
-    { gene: "tet(A)", class: "tetracycline", subclass: "tetracycline", method: "EXACTX", identity: 100.0, coverage: 100.0, contig: "NODE_30_length_22184_cov_23.784921", start: 2238, stop: 3434, strand: "+", role: "AMR" },
-    { gene: "aadA2", class: "aminoglycoside", subclass: "streptomycin", method: "EXACTX", identity: 100.0, coverage: 100.0, contig: "NODE_37_length_9804_cov_25.155627", start: 1988, stop: 2776, strand: "+", role: "AMR" },
-    { gene: "cmlA1", class: "phenicol", subclass: "chloramphenicol", method: "EXACTX", identity: 100.0, coverage: 100.0, contig: "NODE_37_length_9804_cov_25.155627", start: 3041, stop: 4297, strand: "+", role: "AMR" },
-    { gene: "aadA1", class: "aminoglycoside", subclass: "streptomycin", method: "EXACTX", identity: 100.0, coverage: 100.0, contig: "NODE_37_length_9804_cov_25.155627", start: 4393, stop: 5181, strand: "+", role: "AMR" },
-    { gene: "qacL", class: "quaternary ammonium", subclass: "quaternary ammonium", method: "EXACTX", identity: 100.0, coverage: 100.0, contig: "NODE_37_length_9804_cov_25.155627", start: 5354, stop: 5683, strand: "+", role: "STRESS" },
-    { gene: "sul3", class: "sulfonamide", subclass: "sulfonamide", method: "EXACTX", identity: 100.0, coverage: 100.0, contig: "NODE_37_length_9804_cov_25.155627", start: 6869, stop: 7657, strand: "-", role: "AMR" },
-    { gene: "dfrA7", class: "trimethoprim", subclass: "trimethoprim", method: "EXACTX", identity: 100.0, coverage: 100.0, contig: "NODE_41_length_2175_cov_26.837402", start: 246, stop: 716, strand: "+", role: "AMR" },
-    { gene: "qacEdelta1", class: "quaternary ammonium", subclass: "quaternary ammonium", method: "ALLELEX", identity: 100.0, coverage: 100.0, contig: "NODE_41_length_2175_cov_26.837402", start: 949, stop: 1293, strand: "+", role: "STRESS" },
-    { gene: "sul1", class: "sulfonamide", subclass: "sulfonamide", method: "BLASTX", identity: 98.83, coverage: 93.45, contig: "NODE_41_length_2175_cov_26.837402", start: 1290, stop: 2060, strand: "+", role: "AMR" },
-    { gene: "blaTEM-1", class: "beta-lactam", subclass: "beta-lactam", method: "ALLELEX", identity: 100.0, coverage: 100.0, contig: "NODE_42_length_1823_cov_24.661538", start: 433, stop: 1290, strand: "+", role: "AMR" },
-    { gene: "aph(3')-Ia", class: "aminoglycoside", subclass: "kanamycin", method: "EXACTX", identity: 100.0, coverage: 100.0, contig: "NODE_46_length_1294_cov_22.902314", start: 215, stop: 1027, strand: "+", role: "AMR" }
-  ],
-  clusters: [
-    {
-      title: "NODE_37 multidrug cassette-like island",
-      contig: "NODE_37_length_9804_cov_25.155627",
-      length: 9804,
-      note: "The aadA2-cmlA1-aadA1-qacL-sul3 block matches a known style of sul3-associated multidrug region. This is important epidemiologically, but it is not evidence of a brand-new resistance cassette.",
-      genes: ["aadA2", "cmlA1", "aadA1", "qacL", "sul3"]
-    },
-    {
-      title: "NODE_41 integron-like resistance tail",
-      contig: "NODE_41_length_2175_cov_26.837402",
-      length: 2175,
-      note: "The dfrA7-qacEdelta1-sul1 arrangement is compatible with a class 1 integron-associated structure. Without longer contigs or long reads, it is safer to call this integron-like rather than fully resolved.",
-      genes: ["dfrA7", "qacEdelta1", "sul1"]
-    },
-    {
-      title: "NODE_42 beta-lactamase unit",
-      contig: "NODE_42_length_1823_cov_24.661538",
-      length: 1823,
-      note: "blaTEM-1 appears on a short contig as a complete known beta-lactamase gene. The exact surrounding mobile context remains unresolved in this assembly.",
-      genes: ["blaTEM-1"]
-    },
-    {
-      title: "NODE_46 aminoglycoside phosphotransferase unit",
-      contig: "NODE_46_length_1294_cov_22.902314",
-      length: 1294,
-      note: "aph(3')-Ia contributes aminoglycoside resistance and appears alone on this short contig fragment.",
-      genes: ["aph(3')-Ia"]
-    },
-    {
-      title: "NODE_30 tetracycline efflux region",
-      contig: "NODE_30_length_22184_cov_23.784921",
-      length: 22184,
-      note: "tet(A) is present as a complete, exact tetracycline efflux determinant on a larger contig, reinforcing the MDR class count.",
-      genes: ["tet(A)"]
-    }
-  ],
-  novelty: [
-    {
-      label: "Novel AMR gene",
-      score: "No",
-      support: 10,
-      text: "The detected genes are established references. Most are exact 100% identity and 100% coverage matches, which argues against a new gene claim."
-    },
-    {
-      label: "New lineage",
-      score: "No",
-      support: 18,
-      text: "ST354 has already been reported in human, animal, food, and environmental AMR studies. This sample fits a known lineage rather than revealing a new clone."
-    },
-    {
-      label: "Meaningful science",
-      score: "Yes",
-      support: 76,
-      text: "This is a robust surveillance-grade MDR genome with an interpretable resistome. Its scientific value increases if linked to underreported geography, source metadata, or comparative genomics."
-    }
-  ]
-};
+const reportData = window.reportData;
+if (!reportData) {
+  throw new Error("site_data.js did not define window.reportData.");
+}
 
 const isFrench = document.documentElement.lang === "fr";
 const numberLocale = isFrench ? "fr-FR" : "en-US";
@@ -120,27 +27,6 @@ const subclassTranslations = {
   "quaternary ammonium": "Ammonium quaternaire"
 };
 
-const noveltyTranslations = [
-  {
-    label: "Nouveau g&egrave;ne AMR",
-    score: "Non",
-    support: 10,
-    text: "Les g&egrave;nes d&eacute;tect&eacute;s correspondent &agrave; des r&eacute;f&eacute;rences d&eacute;j&agrave; connues. Les correspondances exactes dominent, ce qui ne soutient pas l'hypoth&egrave;se d'un nouveau g&egrave;ne."
-  },
-  {
-    label: "Nouvelle lign&eacute;e",
-    score: "Non",
-    support: 18,
-    text: "ST354 est d&eacute;j&agrave; rapport&eacute; dans les &eacute;tudes AMR humaines, animales et environnementales. Cet isolat s'inscrit dans une lign&eacute;e connue."
-  },
-  {
-    label: "Science utile",
-    score: "Oui",
-    support: 76,
-    text: "Ce g&eacute;nome reste tr&egrave;s utile pour la surveillance MDR et pour une future g&eacute;nomique comparative si des m&eacute;tadonn&eacute;es suppl&eacute;mentaires sont ajout&eacute;es."
-  }
-];
-
 const antibioticPalette = {
   "aminoglycoside": "#4d7a5c",
   "beta-lactam": "#b55b3a",
@@ -158,7 +44,7 @@ function formatNumber(value) {
 }
 
 function statusClass(status) {
-  return `status-${(status || "na").toLowerCase()}`;
+  return `status-${String(status || "na").toLowerCase().replace(/\s+/g, "-")}`;
 }
 
 function titleCase(text) {
@@ -532,7 +418,7 @@ function buildClusters() {
 }
 
 function buildNovelty() {
-  const noveltyItems = isFrench ? noveltyTranslations : reportData.novelty;
+  const noveltyItems = isFrench ? reportData.novelty.cardsFr : reportData.novelty.cardsEn;
   document.getElementById("novelty-grid").innerHTML = noveltyItems.map((item) => `
     <article class="novelty-card">
       <span class="label">${item.label}</span>
@@ -541,6 +427,97 @@ function buildNovelty() {
       <p>${item.text}</p>
     </article>
   `).join("");
+}
+
+function noveltyStageLabel(stageName) {
+  const mapping = {
+    known_gene_baseline: isFrench ? "Filtrage des gènes connus" : "Known-gene baseline",
+    gene_prediction: isFrench ? "Prédiction des gènes" : "Gene prediction",
+    homology_screen: isFrench ? "Homologie Swiss-Prot" : "Swiss-Prot homology",
+    domain_inference: isFrench ? "Domaines Pfam" : "Pfam domains",
+    read_validation: isFrench ? "Validation par profondeur" : "Read validation",
+    comparative_context: isFrench ? "Contexte comparatif" : "Comparative context",
+    phylogeny: isFrench ? "Phylogénie" : "Phylogeny"
+  };
+  return mapping[stageName] || stageName;
+}
+
+function buildNoveltyMethods() {
+  const methods = reportData.novelty.methods || [];
+  const target = document.getElementById("novelty-methods");
+  target.innerHTML = methods.map((method) => `
+    <article class="research-card">
+      <div class="research-card-head">
+        <h3>${isFrench ? method.title_fr : method.title_en}</h3>
+      </div>
+      <div class="research-block">
+        <span class="research-label">${isFrench ? "Description" : "Description"}</span>
+        <p>${isFrench ? method.text_fr : method.text_en}</p>
+      </div>
+      <div class="research-block">
+        <span class="research-label">${isFrench ? "Outils" : "Tools"}</span>
+        <p>${method.tools}</p>
+      </div>
+      <div class="research-block">
+        <span class="research-label">${isFrench ? "Bases de données" : "Databases"}</span>
+        <p>${method.databases}</p>
+      </div>
+    </article>
+  `).join("");
+}
+
+function buildNoveltyStageStatus() {
+  const statuses = reportData.novelty.stageStatus || [];
+  const headers = isFrench ? ["Étape", "Statut", "Détail"] : ["Stage", "Status", "Detail"];
+  const rows = statuses.map((item) => `
+    <tr>
+      <td>${noveltyStageLabel(item.stageName)}</td>
+      <td><span class="status-chip ${statusClass(item.status)}">${item.status}</span></td>
+      <td>${isFrench ? item.detailFr : item.detailEn}</td>
+    </tr>
+  `).join("");
+  document.getElementById("novelty-stage-status").innerHTML = `
+    <table class="qc-table">
+      <thead><tr>${headers.map((header) => `<th>${header}</th>`).join("")}</tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+}
+
+function buildNoveltyCandidates() {
+  const candidates = reportData.novelty.candidates || [];
+  const target = document.getElementById("novelty-candidates");
+  if (!candidates.length) {
+    target.innerHTML = `<p>${isFrench ? "Aucun candidat classé n'est actuellement disponible dans cette livraison." : "No ranked novelty candidates are currently available in this bundle."}</p>`;
+    return;
+  }
+  const headers = isFrench
+    ? ["Candidat", "Produit", "Niveau", "Score", "Identité", "Couverture", "Domaines", "Support profondeur"]
+    : ["Candidate", "Product", "Tier", "Score", "Identity", "Coverage", "Domains", "Depth support"];
+  const rows = candidates.map((item) => `
+    <tr>
+      <td><code>${item.candidateId}</code></td>
+      <td>${item.product || ""}</td>
+      <td>${item.tier || ""}</td>
+      <td>${item.score != null ? item.score : ""}</td>
+      <td>${item.identity != null ? `${item.identity}%` : ""}</td>
+      <td>${item.coverage != null ? `${item.coverage}%` : ""}</td>
+      <td>${item.domains || ""}</td>
+      <td>${item.depthConsistent ? (isFrench ? "Oui" : "Yes") : (isFrench ? "Non" : "No")}</td>
+    </tr>
+  `).join("");
+  target.innerHTML = `
+    <table class="gene-table">
+      <thead><tr>${headers.map((header) => `<th>${header}</th>`).join("")}</tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+}
+
+function buildNoveltyConclusion() {
+  document.getElementById("novelty-conclusion").innerHTML = isFrench
+    ? reportData.novelty.conclusionFr
+    : reportData.novelty.conclusionEn;
 }
 
 function init() {
@@ -555,6 +532,10 @@ function init() {
   buildGeneTable();
   buildClusters();
   buildNovelty();
+  buildNoveltyMethods();
+  buildNoveltyStageStatus();
+  buildNoveltyCandidates();
+  buildNoveltyConclusion();
 }
 
 init();
